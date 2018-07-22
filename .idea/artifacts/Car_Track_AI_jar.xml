@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Car Track AI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Car_Track_AI_jar</output-path>
+    <root id="archive" name="Car Track AI.jar">
+      <element id="module-output" name="Car Track AI" />
+    </root>
+  </artifact>
+</component>
