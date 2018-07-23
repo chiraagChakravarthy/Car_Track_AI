@@ -7,15 +7,14 @@ import car_track.object.Plane;
 import car_track.position.Position;
 import car_track.position.UpdatingPosition;
 
-import javax.swing.text.Segment;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class Track {
-    private ArrayList<PolygonBase> segments;
-    private PolygonBase track;
-    private Plane plane;
-    private UpdatingPosition position;
+    protected ArrayList<PolygonBound> segments;
+    protected PolygonBound track;
+    protected Plane plane;
+    protected UpdatingPosition position;
 
     public Track(int length, float width, float unitLength, float turnFactor, Plane plane) {
         Position[] trackPositions = new Position[length*2];
@@ -34,7 +33,7 @@ public class Track {
         }
         for (int i = 0; i < trackPositions.length/2-1; i++) {
             int m = i*2;
-            segments.add(new PolygonBase(Color.WHITE, position, new Position[]{trackPositions[m], trackPositions[m+1], trackPositions[m+3], trackPositions[m+2]}, i==trackPositions.length/2-2));
+            segments.add(generateBound(new Position[]{trackPositions[m], trackPositions[m+1], trackPositions[m+3], trackPositions[m+2]}));
         }
         Position[] relative = new Position[trackPositions.length];
         int trackLength = relative.length/2;
@@ -42,19 +41,11 @@ public class Track {
             relative[i] = trackPositions[i*2];
             relative[relative.length-i-1] = trackPositions[i*2+1];
         }
-        track = new PolygonBase(Color.WHITE, position, relative, false);
+        track = generateBound(relative);
     }
 
     public boolean inside(Bot bot){
         return track.inside(bot.getBase());
-    }
-
-    public void render(Graphics2D g){
-        track.render(g);
-    }
-
-    public void tick(){
-        track.tick();
     }
 
     public double getFitness(Bot bot) {
@@ -65,11 +56,15 @@ public class Track {
         return 0;
     }
 
-    public PolygonBase getTrack() {
+    public PolygonBound getTrack() {
         return track;
     }
 
     public PolygonBound getLastSegment() {
         return segments.get(segments.size()-1);
+    }
+
+    protected PolygonBound generateBound(Position[] relative){
+        return new PolygonBound(position, relative);
     }
 }

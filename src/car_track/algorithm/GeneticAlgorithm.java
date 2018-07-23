@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GeneticAlgorithm {
-    private static final double MUTATION_FACTOR = .1, SURVIVAL_RATE = 0.5;
+    private static final double MUTATION_FACTOR = .1, SURVIVAL_RATE = 0.1;
     private static final int POPULATION_SIZE = 100;
     private NeuralNetwork[] networks;
     public GeneticAlgorithm(){

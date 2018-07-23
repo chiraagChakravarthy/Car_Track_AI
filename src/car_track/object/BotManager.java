@@ -9,7 +9,7 @@ public class BotManager {
     private ArrayList<Bot> bots;
     private Bot maxBot;
     public BotManager(){
-        bots = new ArrayList<>();
+        this.bots = new ArrayList<>();
     }
 
     public void tick(){

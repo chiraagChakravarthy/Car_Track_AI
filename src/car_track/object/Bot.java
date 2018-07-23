@@ -51,6 +51,7 @@ public class Bot {
                     max = i;
                 }
             }
+            System.out.println(max);
             movement.setLeft(max==0);
             movement.setRight(max==2);
             movement.tick();

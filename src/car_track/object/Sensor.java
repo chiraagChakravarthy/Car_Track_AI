@@ -24,7 +24,7 @@ public class Sensor extends PolygonBound{
     public float reading() {
         if(changed)
             update();
-        PolygonBase track = bot.getPlane().getTrack().getTrack();
+        PolygonBound track = bot.getPlane().getTrack().getTrack();
         float[] slopes = track.getSlopes(), lineRanges = track.getLineRanges();
         Position[] absolute = track.getAbsolute();
         float minDistance = RANGE;

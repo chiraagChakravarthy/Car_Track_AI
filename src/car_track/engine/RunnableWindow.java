@@ -107,6 +107,8 @@ public class RunnableWindow extends Canvas implements Runnable, KeyListener, Mou
             return;
         }
         Graphics2D g = (Graphics2D) bs.getDrawGraphics();
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0,getWindowWidth(), getWindowHeight());
         manager.render(g);
         g.dispose();
         bs.show();
