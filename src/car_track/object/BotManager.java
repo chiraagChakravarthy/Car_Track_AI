@@ -1,6 +1,5 @@
 package car_track.object;
 
-import car_track.algorithm.GeneticAlgorithm;
 import car_track.position.Position;
 
 import java.awt.*;
@@ -9,10 +8,8 @@ import java.util.ArrayList;
 public class BotManager {
     private ArrayList<Bot> bots;
     private Bot maxBot;
-    public BotManager(Plane plane, GeneticAlgorithm algorithm){
+    public BotManager(){
         bots = new ArrayList<>();
-        bots.addAll(algorithm.getBots(plane));
-        maxBot = bots.get(0);
     }
 
     public void tick(){
@@ -57,10 +54,14 @@ public class BotManager {
                 }
             }
         }
-        this.maxBot = bots.get(maxIndex);
+        this.maxBot = bots.size()==0?null:bots.get(maxIndex);
     }
 
     public Bot getBot(int i) {
         return bots.get(i);
+    }
+
+    public void addAll(ArrayList<Bot> bots){
+        this.bots.addAll(bots);
     }
 }

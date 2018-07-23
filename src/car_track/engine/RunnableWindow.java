@@ -32,7 +32,7 @@ public class RunnableWindow extends Canvas implements Runnable, KeyListener, Mou
     private AlgorithmManager manager;
 
     private RunnableWindow() {
-        window = new Window("Car Track AI", 2, this);
+        window = new Window("Car Track AI", 3, this);
         addKeyListener(this);
         addMouseListener(this);
         addMouseWheelListener(this);

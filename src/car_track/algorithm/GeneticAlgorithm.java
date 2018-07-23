@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GeneticAlgorithm {
-    private static final double MUTATION_FACTOR = .1, SURVIVAL_RATE = 0.1;
+    private static final double MUTATION_FACTOR = .1, SURVIVAL_RATE = 0.5;
     private static final int POPULATION_SIZE = 100;
     private NeuralNetwork[] networks;
     public GeneticAlgorithm(){
@@ -20,8 +20,11 @@ public class GeneticAlgorithm {
         }
     }
 
-    public void propagateAndMutate(){
+    public void sort(){
         Arrays.sort(networks, (o1, o2) -> (int) (Math.signum(o1.getFitness()-o2.getFitness())*2));
+    }
+
+    public void propagateAndMutate(){
         NeuralNetwork[] babies = new NeuralNetwork[networks.length];
         int amountLiving = (int) (SURVIVAL_RATE*networks.length);
         for (int i = 0; i < networks.length; i++) {

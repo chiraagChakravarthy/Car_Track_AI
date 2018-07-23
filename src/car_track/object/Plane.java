@@ -14,9 +14,9 @@ public class Plane {
     private Track track;
     private int iterations;
 
-    public Plane(GeneticAlgorithm algorithm){
+    public Plane(){
         track = new Track(500, 200, 10, (float) (Math.PI/20), this);
-        bots = new BotManager(this, algorithm);
+        bots = new BotManager();
         iterations = 0;
     }
 
