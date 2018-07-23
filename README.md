@@ -5,11 +5,10 @@ This program implements a genetic algorithm to train bots to drive around a trac
 Each bot is a circle with distance sensors at equal rotational intervals. Sensors have a fixed range. The robot feeds the sensor readings into its neural network, which then outputs a rotational action. Bots accelerate in the direction they are facing.
 
 ## Neural Network Logic
-Each network has input nodes equal to its sensors and 3 output nodes. Each input node takes a sensor reading. The output nodes are interpreted as follows:
+Each network has input nodes equal to its sensors and 3 output nodes. Each input node takes a sensor reading. The bot performs the action depicted by the most activated output node. The output nodes are interpreted as follows:
 1. Rotate Counterclockwise
 2. Stop Rotating
 3. Rotate Clockwise
-The bot performs the action depicted by the most activated output node
 
 ## Track Logic
 Each generation is tested on a procedurally generated track in order to prevent over-fixing. Each track is built up of a fixed number of segments, each with a preset length. Each segment's rotation is altered by a random factor to that of the previous one.
