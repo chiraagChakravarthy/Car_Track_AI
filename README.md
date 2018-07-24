@@ -21,4 +21,4 @@ Each generation is tested on a procedurally generated track in order to prevent 
 5. Mutate all weights and biases in the new neural network indiscrimanantly and randomly by a fixed factor
 
 ## Simulation
-For each neural network which makes up the population, a bot is added to the simulation. If a bot leaves the bounds of the track, it is disabled and a fitness is recorded. If the simulation exceeds 2000 iterations, all live bots are immediatly disabled and fitnesses are recorded. The simulation ends when all bots are disabled.
+For each neural network which makes up the population, a bot is added to the simulation. If a bot leaves the bounds of the track, it is disabled and a fitness is recorded. If the simulation exceeds a certian number of iterations, all live bots are immediatly disabled and fitnesses are recorded. The simulation ends when all bots are disabled.
